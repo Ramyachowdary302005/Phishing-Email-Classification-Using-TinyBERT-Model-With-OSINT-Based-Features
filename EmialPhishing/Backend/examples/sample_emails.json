@@ -1,0 +1,60 @@
+{
+  "phishing_examples": [
+    {
+      "name": "Urgent Account Suspension",
+      "email_text": "Subject: URGENT: Your Account Will Be Suspended\n\nDear User,\n\nWe have detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information.\n\nPlease click here immediately to verify your account: http://bit.ly/verify-now-urgent\n\nThis is your final warning. Failure to comply will result in permanent account closure.\n\nBest regards,\nSecurity Team",
+      "expected_result": "Phishing",
+      "headers": {
+        "from": "security@paypal.com",
+        "spf": "fail",
+        "dkim": "fail"
+      }
+    },
+    {
+      "name": "Lottery Winner",
+      "email_text": "CONGRATULATIONS! YOU'VE WON $1,000,000!!!\n\nYou are our lucky winner! Claim your prize now at:\nhttp://www.claim-prize-now.tk\nhttp://tinyurl.com/winner123\n\nHurry! This offer expires in 24 hours!\n\nClick here: http://suspicious-domain.click/claim",
+      "expected_result": "Phishing",
+      "headers": {}
+    },
+    {
+      "name": "Bank Security Alert",
+      "email_text": "Subject: Security Alert: Unusual Login Detected\n\nDear Customer,\n\nWe detected a login to your account from a new device in Russia.\n\nIf this was not you, please secure your account immediately:\nhttps://secure-bank-login.ru/secure\n\nYour account will be locked if you don't act now!\n\nBank of America Security Team",
+      "expected_result": "Phishing",
+      "headers": {
+        "from": "security@bankofamerica.com",
+        "return_path": "noreply@scammer.com"
+      }
+    }
+  ],
+  "safe_examples": [
+    {
+      "name": "Team Meeting",
+      "email_text": "Subject: Team Meeting Tomorrow\n\nHi everyone,\n\nJust a reminder that we have our weekly team meeting tomorrow at 10 AM in Conference Room B.\n\nAgenda:\n1. Project updates\n2. Q2 planning\n3. Team feedback\n\nPlease come prepared with your status reports.\n\nThanks,\nJohn",
+      "expected_result": "Legitimate",
+      "headers": {
+        "from": "john@company.com",
+        "spf": "pass",
+        "dkim": "pass"
+      }
+    },
+    {
+      "name": "Newsletter with Links",
+      "email_text": "Check out these interesting articles:\n\n1. https://www.nytimes.com/2024/01/01/technology/ai-trends.html\n2. https://github.com/microsoft/vscode\n3. https://stackoverflow.com/questions/123456/how-to-code\n\nLet me know what you think!\n\nBest,\nSarah",
+      "expected_result": "Legitimate",
+      "headers": {
+        "from": "sarah@techblog.com"
+      }
+    },
+    {
+      "name": "Internal Communication",
+      "email_text": "Subject: Project Update - Q1 Results\n\nHi Team,\n\nGreat news! Our Q1 results exceeded expectations:\n\n- Revenue: $2.5M (+15% YoY)\n- New customers: 1,200\n- Customer satisfaction: 4.8/5\n\nLet's celebrate at the team lunch this Friday!\n\nBest regards,\nMaria\nVP of Operations",
+      "expected_result": "Legitimate",
+      "headers": {
+        "from": "maria@company.com",
+        "spf": "pass",
+        "dkim": "pass",
+        "dmarc": "pass"
+      }
+    }
+  ]
+}
